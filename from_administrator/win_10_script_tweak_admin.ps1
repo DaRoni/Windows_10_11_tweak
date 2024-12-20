@@ -1,11 +1,4 @@
-powershell -ExecutionPolicy Bypass -file "\\ulbassdat\install\Reestr\win_tweak\sc\win_10_script_smartscreen_disable.ps1"
-powershell -ExecutionPolicy Bypass -file "\\ulbassdat\install\Reestr\win_tweak\sc\win_10_lang_RU.ps1"
-powershell -ExecutionPolicy Bypass -file "\\ulbassdat\install\Reestr\win_tweak\sc\win_10_animation_off.ps1"
-powershell -ExecutionPolicy Bypass -file "\\ulbassdat\install\Reestr\win_tweak\sc\win_10_Startlayout_NewUser.ps1"
-powershell -ExecutionPolicy Bypass -file "\\ulbassdat\install\Reestr\win_tweak\sc\win_10_script_Adobe_DC_admin.ps1"
-powershell -ExecutionPolicy Bypass -file "\\ulbassdat\install\Reestr\win_tweak\sc\win_10_script_OneDrive_Uninstall.ps1"
-powershell -ExecutionPolicy Bypass -file "\\ulbassdat\install\Reestr\win_tweak\sc\win_10_script_apps_uninstall_admin.ps1"
-#######################
+
 #taskkill.exe /F /IM "explorer.exe"
 ####################### Отключаем телеметрию и саму службу
 write-host "--------------Trying disable Microsoft Compatibility Telemetry service"
@@ -270,29 +263,29 @@ write-host "Microsoft XPS Document Writer"
 IF (!(Test-Path "HKLM:\Software\Policies\Google\Chrome\RestoreOnStartupURLs"))
 {New-Item -Path "HKLM:\Software\Policies\Google\Chrome\RestoreOnStartupURLs" -Force}
 New-ItemProperty -Path "HKLM:\Software\Policies\Google\Chrome" -Name RestoreOnStartup -PropertyType DWord -Value 4 -Force
-New-ItemProperty -Path "HKLM:\Software\Policies\Google\Chrome\RestoreOnStartupURLs" -Name 1 -PropertyType String -Value "iww.ulba.kz" -Force
+New-ItemProperty -Path "HKLM:\Software\Policies\Google\Chrome\RestoreOnStartupURLs" -Name 1 -PropertyType String -Value "site.kz" -Force
 New-ItemProperty -Path "HKLM:\Software\Policies\Google\Chrome" -Name BookmarkBarEnabled -PropertyType DWord -Value 1 -Force
 New-ItemProperty -Path "HKLM:\Software\Policies\Google\Chrome" -Name AlwaysOpenPdfExternally -PropertyType DWord -Value 1 -Force
-write-host "------------------Add ulba.kz InsecureContentAllowed Chrome"
+write-host "------------------Add site.kz InsecureContentAllowed Chrome"
 IF (!(Test-Path "HKLM:\SOFTWARE\Policies\Google\Chrome\InsecureContentAllowedForUrls")) 
 {New-Item -Path "HKLM:\SOFTWARE\Policies\Google\Chrome\InsecureContentAllowedForUrls" -Force}
-New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Google\Chrome\InsecureContentAllowedForUrls" -Name 1 -Value "[*.]ulba.kz" -Force
-New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Google\Chrome\InsecureContentAllowedForUrls" -Name 2 -Value "[*.]kazatomprom.kz" -Force
+New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Google\Chrome\InsecureContentAllowedForUrls" -Name 1 -Value "[*.]site.kz" -Force
+New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Google\Chrome\InsecureContentAllowedForUrls" -Name 2 -Value "[*.]site2.kz" -Force
 
 #################### Edge Chromium
 IF (!(Test-Path "HKLM:\Software\Policies\Microsoft\Edge\RestoreOnStartupURLs"))
 {New-Item -Path "HKLM:\Software\Policies\Microsoft\Edge\RestoreOnStartupURLs" -Force}
 New-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Edge" -Name RestoreOnStartup -PropertyType DWord -Value 4 -Force
-New-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Edge\RestoreOnStartupURLs" -Name 1 -PropertyType String -Value "iww.ulba.kz" -Force
+New-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Edge\RestoreOnStartupURLs" -Name 1 -PropertyType String -Value "site.kz" -Force
 New-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Edge" -Name FavoritesBarEnabled -PropertyType DWord -Value 1 -Force
 New-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Edge" -Name AlwaysOpenPdfExternally -PropertyType DWord -Value 1 -Force
 New-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Edge" -Name PersonalizationReportingEnabled -PropertyType DWord -Value 0 -Force
 New-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Edge" -Name StartupBoostEnabled -PropertyType DWord -Value 0 -Force
-write-host "------------------Add ulba.kz InsecureContentAllowed Edge"
+write-host "------------------Add site.kz InsecureContentAllowed Edge"
 IF (!(Test-Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls")) 
 {New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls" -Force}
-New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls" -Name 1 -Value "[*.]ulba.kz" -Force
-New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls" -Name 2 -Value "[*.]kazatomprom.kz" -Force
+New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls" -Name 1 -Value "[*.]site.kz" -Force
+New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls" -Name 2 -Value "[*.]site2.kz" -Force
 
 #############################################################
 write-host "--------------------Honeyview regall"
@@ -336,8 +329,6 @@ If ($OSver -gt 22000)
 
 #write-host "-----------------Windows 11 SetUserFTA Fix need reboot"
 #Start-Process -FilePath "\\ulbassdat\install\Reestr\win_tweak\sc\SetUserFTA\Fix_SetUserFTA.exe"
-write-host "Нужно перезагрузить ПК"
-write-host "Нужно перезагрузить ПК"
-
+write-host "need PC reboot"
 }
 Start-Process explorer

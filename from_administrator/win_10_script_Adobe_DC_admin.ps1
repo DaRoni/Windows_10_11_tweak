@@ -18,11 +18,11 @@ IF (Test-Path $path2_86_JS){Rename-Item -Path $path2_86_JS -NewName "JSByteCodeW
 IF (Test-Path $path3_86_JS){Rename-Item -Path $path3_86_JS -NewName "JSByteCodeWin_111.bin"}
 ###c:\Program Files (x86)\Adobe\Acrobat Reader 2020\Reader\AcroApp\RUS\Viewer.aapp
 IF (Test-Path "c:\Program Files (x86)\Adobe\Acrobat Reader 2020")
-{Copy-Item -Path "\\ulbassdat\install\Reestr\win_tweak\sc\win_10_script_Adobe_DC_admin_Viewer.aapp" -Destination "c:\Program Files (x86)\Adobe\Acrobat Reader 2020\Reader\AcroApp\RUS\Viewer.aapp"}
+{Copy-Item -Path ".\win_10_script_Adobe_DC_admin_Viewer.aapp" -Destination "c:\Program Files (x86)\Adobe\Acrobat Reader 2020\Reader\AcroApp\RUS\Viewer.aapp"}
 IF (Test-Path "c:\Program Files (x86)\Adobe\Acrobat Reader DC")
-{Copy-Item -Path "\\ulbassdat\install\Reestr\win_tweak\sc\win_10_script_Adobe_DC_admin_Viewer.aapp" -Destination "c:\Program Files (x86)\Adobe\Acrobat Reader DC\Reader\AcroApp\RUS\Viewer.aapp"}
+{Copy-Item -Path ".\win_10_script_Adobe_DC_admin_Viewer.aapp" -Destination "c:\Program Files (x86)\Adobe\Acrobat Reader DC\Reader\AcroApp\RUS\Viewer.aapp"}
 IF (Test-Path "c:\Program Files (x86)\Adobe\Acrobat DC")
-{Copy-Item -Path "\\ulbassdat\install\Reestr\win_tweak\sc\win_10_script_Adobe_DC_admin_Viewer.aapp" -Destination "c:\Program Files (x86)\Adobe\Acrobat DC\Reader\AcroApp\RUS\Viewer.aapp"}
+{Copy-Item -Path ".\win_10_script_Adobe_DC_admin_Viewer.aapp" -Destination "c:\Program Files (x86)\Adobe\Acrobat DC\Reader\AcroApp\RUS\Viewer.aapp"}
 ################### Function Body
 function AdobeBody
 {
